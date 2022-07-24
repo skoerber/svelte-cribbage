@@ -1,0 +1,4 @@
+#graphile: npx postgraphile --watch --owner-connection postgres://postgres:postgres@localhost:5432/postgres --enhance-graphiql
+graphile: npx postgraphile --watch --owner-connection $ROOT_DATABASE_URL --enhance-graphiql --append-plugins @graphile-contrib/pg-simplify-inflector
+migrate: npx graphile-migrate watch
+pg: docker logs --follow server-database-1
